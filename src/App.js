@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import NotesList from "./components/NotesList";
+
+import "./App.css";
 
 function App() {
+  const [notes, setNotes] = useState([
+    {
+      id: Math.random(),
+      text: "Hello First Note",
+      date: "12/05/2023",
+    },
+  ]);
+  const addNotes = (text) => {
+    const date = new Date();
+    const newNote = {
+      id: Math.random(),
+      text: text,
+      date: date.toLocaleString(),
+    };
+    // we need previous values and current value both
+    const newNotes = [...notes, newNote];
+    setNotes(newNotes);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <NotesList handleAddNotes={addNotes} notes={notes} />
     </div>
   );
 }

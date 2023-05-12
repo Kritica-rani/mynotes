@@ -1,13 +1,44 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+ 
+.container{
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 15px;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.notes-list{
+  display: grid;
+  /* 1 rem = 16px */
+  grid-gap: 1rem; 
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+
+}
+
+.note{
+  background-color: rgb(237, 237, 138);
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.note-footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.note.new{
+  background-color: rgb(185, 248, 248);
+}
+textarea{
+  border: none;
+  resize: none;
+  background-color: rgb(185, 248, 248);
+}
+textarea:focus{
+  outline: none;
 }
